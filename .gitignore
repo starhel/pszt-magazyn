@@ -1,5 +1,4 @@
 .idea/
 bin/
 build/
-..gitignore.un~
-.gitignore~
+doc/
