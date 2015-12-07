@@ -2,7 +2,7 @@
  * \file   RandDouble.h
  * \author Adrian Stachlewski
  * \date   07-12-2015
- * \brief  Klasa generująca liczbe z przedzialu <0, 1) z rozkładem jednostajnym.
+ * \brief  Klasa generująca liczbe z przedzialu <low, high) z rozkładem jednostajnym.
  */
 #ifndef PSZT_RANDDOUBLE_H
 #define PSZT_RANDDOUBLE_H
