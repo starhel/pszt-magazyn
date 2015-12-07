@@ -6,7 +6,7 @@ Aby skompilować projekt wymagane jest posiadanie:
 4. doxygen (1.8.10)
 5. cmake (3.3.2)
 
-W nawiasach podane wersje, których sam używam. Wszystko w miare szybko i wygodnie można pobrać za pomoca Msys2: https://msys2.github.io/
+W nawiasach podane wersje, których sam używam. Wszystko w miare szybko i wygodnie można pobrać za pomoca (https://msys2.github.io/)
 Po zainstalowaniu odpowiedniej wersji nalezy wykonac nastepujace polecenia (przyklad dla wersji 64-bit):
 1. update-core
 2. uruchamiamy ponownie, jezeli cos zostalo zainstalowane
