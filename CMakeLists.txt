@@ -6,7 +6,7 @@ set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR})
 set(LIBRARY_OUTPUT_PATH ${CMAKE_BINARY_DIR})
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
-set(SOURCE_FILES main.cpp src/RandInt.h src/userwindow.cpp)
+set(SOURCE_FILES main.cpp src/RandInt.h src/userwindow.cpp src/RandDouble.h)
 
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
@@ -18,19 +18,25 @@ add_executable(app ${SOURCE_FILES})
 qt5_use_modules(app Widgets)
 
 # Testy jednostkowe
-add_executable(tests tests/test_RandInt.cc)
-target_link_libraries(tests boost_unit_test_framework-mt)
+find_package(Boost)
+if(Boost_FOUND)
+    option(GENERATE_TESTS "Wygeneruj testy" ON)
+    if(GENERATE_TESTS)
+        add_executable(tests tests/test_RandInt.cc tests/test_RandDouble.cc)
+        target_link_libraries(tests boost_unit_test_framework-mt)
+    endif(GENERATE_TESTS)
+endif(Boost_FOUND)
 
 # Dokumentacja
 find_package(Doxygen) # Doxygen
-option(GENERATE_DOC "Wygeneruj dokumentacje" ON)
-if(GENERATE_DOC)
-    if(DOXYGEN_FOUND)
+if(DOXYGEN_FOUND)
+    option(GENERATE_DOC "Wygeneruj dokumentacje" ON)
+    if(GENERATE_DOC)
         configure_file(${CMAKE_CURRENT_SOURCE_DIR}/Doxyfile.in ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile @ONLY)
         add_custom_target(doc
                 ${DOXYGEN_EXECUTABLE} ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile
                 WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
                 COMMENT "Generating API documentation with Doxygen" VERBATIM
                 )
-    endif(DOXYGEN_FOUND)
-endif()
+    endif(GENERATE_DOC)
+endif(DOXYGEN_FOUND)

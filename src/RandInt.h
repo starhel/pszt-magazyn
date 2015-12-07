@@ -1,8 +1,8 @@
 /**
- * @file   RandInt.h
- * @author Adrian Stachlewski
- * @date   06-12-2015
- * @brief  Klasa generująca losową liczbę całkowitą.
+ * \file   RandInt.h
+ * \author Adrian Stachlewski
+ * \date   06-12-2015
+ * \brief  Klasa generująca losową liczbę całkowitą.
  */
 
 #ifndef PSZT_RANDINT_H
