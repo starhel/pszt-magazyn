@@ -21,54 +21,40 @@ Creature::ProductRef Creature::getProduct(int id) {
     return products[id];
 }
 
-void Creature::mutation(double mutationProbability) {
+Creature Creature::mutation(double mutationProbability) {
     RandDouble rd;
     RandInt ri(0, static_cast<int>(products.size() - 2));
+    Creature child(products);
     for (int i = 0; i < products.size(); ++i) {
         if (rd() < mutationProbability) {
             int swap_index = ri();
             if (swap_index >= i)
                 swap_index++;
-            std::swap(products[i], products[swap_index]);
+            std::swap(child.products[i], child.products[swap_index]);
         }
     }
+    return child;
 }
 
 Creature Creature::orderCrossover(Creature creature){
-    //assert(products.size()>=3);
-    //int crosspoint = rand()%(products.size()-3) +1; // losowy pkt ciecia
-    int crosspoint = 3;
-    Creature child(this->products);
+    int creatureSize = products.size();
+    RandInt rd(0, creatureSize-1);
+    int crossPoint = rd();
 
-    bool* constNum = new bool[products.size()];
-
-    for (int i = 0; i<products.size();++i)
-    {
-        constNum[i] = false;
-    }
+    Creature child(products);
+    std::vector<bool> constNum(creatureSize, false);
 
     //wykorzystane liczby przed pkt ciecia
-    for (int i = 0; i<=crosspoint; ++i)
-    {
+    for (int i = 0; i <= crossPoint; ++i) {
         constNum[(child.products[i])->getNumber()] = true;
     }
 
-    int i = crosspoint+1;
-    auto j = creature.products.begin();
-    auto end = creature.products.end();
-    for(; j != end ;++j)
-    {
-        std::shared_ptr<Product> a = *j;
-        if (constNum[a->getNumber()] == true)
-            continue;
-        else
-        {
-            child.products[i] = a;
+    int i = crossPoint + 1;
+    for(auto &j : creature.products) {
+        if (constNum[j->getNumber()] != true) {
+            child.products[i] = j;
             ++i;
         }
     }
-
-
-    delete[] constNum;
     return child;
 }

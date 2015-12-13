@@ -34,10 +34,10 @@ BOOST_AUTO_TEST_SUITE(CreatureClass)
             products.emplace_back(new Product(std::to_string(i), i, i));
         }
         Creature creature(products);
-        creature.mutation(0.3);
+        Creature child = creature.mutation(0.3);
         bool var = true;
         for (int j = 0; j < 10; ++j) {
-            var = (creature.getProduct(j) == products[j]) && var;
+            var = (child.getProduct(j) == products[j]) && var;
         }
         BOOST_CHECK_MESSAGE(!var, "Obiekt pozostal niezmieniony");
     }

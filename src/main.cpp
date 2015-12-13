@@ -2,6 +2,7 @@
 #include <QtWidgets/QApplication>
 #include "model/Creature.h"
 #include "model/Product.h"
+#include "model/RandInt.h"
 #include <iostream>
 
 int main(int argc, char *argv[])
@@ -45,4 +46,5 @@ int main(int argc, char *argv[])
     for (int i =0; i<=7;++i){
         std::cout<<ch.getProduct(i) ->getNumber() << std::endl;
     }
+    return 0;
 }

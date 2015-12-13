@@ -31,7 +31,7 @@ public:
 private:
     std::uniform_int_distribution<>::param_type p; /**< Parametr do generatora liczb całkowitych */
     /** Obiekt funkcyjny do generowania losowych liczb całkowitych */
-    std::function<int()> fun = std::bind(std::uniform_int_distribution<>{p}, std::default_random_engine{});
+    std::function<int()> fun = std::bind(std::uniform_int_distribution<>{p}, std::default_random_engine());
 };
 
 
