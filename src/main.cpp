@@ -1,4 +1,4 @@
-#include "src/userwindow.h"
+#include "src/view/userwindow.h"
 #include <QtWidgets/QApplication>
 
 int main(int argc, char *argv[])
