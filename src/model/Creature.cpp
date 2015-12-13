@@ -33,3 +33,42 @@ void Creature::mutation(double mutationProbability) {
         }
     }
 }
+
+Creature Creature::orderCrossover(Creature creature){
+    //assert(products.size()>=3);
+    //int crosspoint = rand()%(products.size()-3) +1; // losowy pkt ciecia
+    int crosspoint = 3;
+    Creature child(this->products);
+
+    bool* constNum = new bool[products.size()];
+
+    for (int i = 0; i<products.size();++i)
+    {
+        constNum[i] = false;
+    }
+
+    //wykorzystane liczby przed pkt ciecia
+    for (int i = 0; i<=crosspoint; ++i)
+    {
+        constNum[(child.products[i])->getNumber()] = true;
+    }
+
+    int i = crosspoint+1;
+    auto j = creature.products.begin();
+    auto end = creature.products.end();
+    for(; j != end ;++j)
+    {
+        std::shared_ptr<Product> a = *j;
+        if (constNum[a->getNumber()] == true)
+            continue;
+        else
+        {
+            child.products[i] = a;
+            ++i;
+        }
+    }
+
+
+    delete[] constNum;
+    return child;
+}

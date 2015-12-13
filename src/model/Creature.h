@@ -24,7 +24,7 @@ public:
     Creature(const Products& products) : products(products) {}
     void shuffle();
     void mutation(double mutationProbability);
-    void orderCrossover(Creature creature);
+    Creature orderCrossover(Creature creature);
     ProductRef getProduct(int id);
 private:
     Products products;

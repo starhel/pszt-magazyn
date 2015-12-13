@@ -24,15 +24,22 @@ public:
      * \param loadingTime Czas załadunku produktu, gdy znajduje się na pierwszej półce
      */
     Product(const std::string &name, int frequency, double loadingTime) : name(name), frequency(frequency),
-                                                                           loadingTime(loadingTime) { }
+                                                                           loadingTime(loadingTime)
+    {
+        number = 0;
+    }
 
     const std::string& getName() const;
     int getFrequency() const;
     double getLoadingTime() const;
+    int getNumber() const;
+    void setNumber(int n);
 
     bool operator==(const Product& product) const;
 
 private:
+    static int productCounter;
+    int number;
     std::string name;           /**< Nazwa produktu */
     int frequency;              /**< Częstotliwość pobierania produktu */
     double loadingTime;         /**< Czas załadunku produktu, gdy znajduje się na pierwszej półce */
