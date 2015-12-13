@@ -34,7 +34,7 @@ BOOST_AUTO_TEST_SUITE(CreatureClass)
             products.emplace_back(new Product(std::to_string(i), i, i));
         }
         Creature creature(products);
-        creature.mutatation(0.3);
+        creature.mutation(0.3);
         bool var = true;
         for (int j = 0; j < 10; ++j) {
             var = (creature.getProduct(j) == products[j]) && var;

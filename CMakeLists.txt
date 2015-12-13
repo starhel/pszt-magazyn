@@ -6,7 +6,7 @@ set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR})
 set(LIBRARY_OUTPUT_PATH ${CMAKE_BINARY_DIR})
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
-set(SOURCE_FILES src/main.cpp src/model/RandInt.h src/view/userwindow.cpp src/model/RandDouble.h src/model/Product.cpp src/model/Product.h src/model/Creature.cpp src/model/Creature.h src/model/algorithm.cpp)
+set(SOURCE_FILES src/main.cpp src/model/RandInt.h src/view/userwindow.cpp src/model/RandDouble.h src/model/Product.cpp src/model/Product.h src/model/Creature.cpp src/model/Creature.h src/model/algorithm.cpp src/model/Population.cpp src/model/Population.h)
 
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
