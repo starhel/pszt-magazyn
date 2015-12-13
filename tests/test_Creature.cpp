@@ -27,5 +27,19 @@ BOOST_AUTO_TEST_SUITE(CreatureClass)
         }
     }
 
+    BOOST_AUTO_TEST_CASE(CreatureMutation1)
+    {
+        Products products;
+        for (int i = 0; i < 10; ++i) {
+            products.emplace_back(new Product(std::to_string(i), i, i));
+        }
+        Creature creature(products);
+        creature.mutatation(0.3);
+        bool var = true;
+        for (int j = 0; j < 10; ++j) {
+            var = (creature.getProduct(j) == products[j]) && var;
+        }
+        BOOST_CHECK_MESSAGE(!var, "Obiekt pozostal niezmieniony");
+    }
 
 BOOST_AUTO_TEST_SUITE_END()

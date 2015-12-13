@@ -23,7 +23,7 @@ class Creature {
 public:
     Creature(const Products& products) : products(products) {}
     void shuffle();
-    void mutatation();
+    void mutatation(double mutationProbability);
     void orderCrossover(Creature creature);
     ProductRef getProduct(int id);
 private:
