@@ -8,7 +8,8 @@
 #ifndef PSZT_RANDINT_H
 #define PSZT_RANDINT_H
 
-#include <random>
+#include <boost/random.hpp>
+#include <boost/nondet_random.hpp>
 #include <functional>
 
 /**
@@ -29,11 +30,9 @@ public:
      */
     int operator()() {return fun();}
 private:
-    std::uniform_int_distribution<>::param_type p; /**< Parametr do generatora liczb całkowitych */
-    /** Obiekt funkcyjny do generowania losowych liczb całkowitych */
-    std::function<int()> fun = std::bind(std::uniform_int_distribution<>{p}, std::default_random_engine());
+    boost::random::uniform_int_distribution<>::param_type p;
+    std::function<int()> fun = std::bind(boost::random::uniform_int_distribution<>{p}, boost::mt19937{boost::random::random_device{}()});
 };
 
 
 #endif //PSZT_RANDINT_H
-

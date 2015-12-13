@@ -46,5 +46,9 @@ int main(int argc, char *argv[])
     for (int i =0; i<=7;++i){
         std::cout<<ch.getProduct(i) ->getNumber() << std::endl;
     }
+
+    RandInt rd(0,20);
+    for (int i=0; i<10; ++i)
+        std::cout << rd() << " ";
     return 0;
 }

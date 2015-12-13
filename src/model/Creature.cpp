@@ -40,7 +40,6 @@ Creature Creature::orderCrossover(Creature creature){
     int creatureSize = products.size();
     RandInt rd(0, creatureSize-1);
     int crossPoint = rd();
-
     Creature child(products);
     std::vector<bool> constNum(creatureSize, false);
 

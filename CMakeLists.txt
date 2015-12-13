@@ -13,8 +13,11 @@ set(CMAKE_AUTOUIC ON)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 find_package(Qt5Widgets REQUIRED)
 
+
 # Podstawowa aplikacja
 add_executable(app ${SOURCE_FILES})
+target_link_libraries(app boost_random-mt.a)
+target_link_libraries(app boost_system-mt.a)
 qt5_use_modules(app Widgets)
 
 # Testy jednostkowe
