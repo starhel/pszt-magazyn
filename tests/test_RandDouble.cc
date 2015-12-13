@@ -1,6 +1,6 @@
 #define BOOST_TEST_MODULE RandDoubleTest
 #include <boost/test/unit_test.hpp>
-#include "../src/RandDouble.h"
+#include "../src/model/RandDouble.h"
 
 bool between(double low, double high, double check)
 {

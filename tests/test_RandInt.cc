@@ -1,7 +1,7 @@
 #define BOOST_TEST_DYN_LINK
 #define BOOST_TEST_MODULE RandIntTest
 #include <boost/test/unit_test.hpp>
-#include "../src/RandInt.h"
+#include "../src/model/RandInt.h"
 
 bool between(int low, int high, int check)
 {
