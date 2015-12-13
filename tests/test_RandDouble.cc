@@ -1,4 +1,3 @@
-#define BOOST_TEST_MODULE RandDoubleTest
 #include <boost/test/unit_test.hpp>
 #include "../src/model/RandDouble.h"
 
@@ -6,6 +5,7 @@ bool between(double low, double high, double check)
 {
     return low <= check && check < high;
 }
+BOOST_AUTO_TEST_SUITE(RandDoubleClass)
 
 BOOST_AUTO_TEST_CASE(RandDouble_1)
 {
@@ -50,3 +50,5 @@ BOOST_AUTO_TEST_CASE(RandDouble_4)
         BOOST_CHECK(between(0, 10, rand_double));
     }
 }
+
+BOOST_AUTO_TEST_SUITE_END()

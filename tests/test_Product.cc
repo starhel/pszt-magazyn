@@ -1,0 +1,22 @@
+#include <boost/test/unit_test.hpp>
+#include "../src/model/Product.h"
+
+BOOST_AUTO_TEST_SUITE(ProductClass)
+
+BOOST_AUTO_TEST_CASE(Product_1)
+{
+    Product product("maslo", 1, 0.4);
+    BOOST_CHECK(product.getName() == "maslo");
+    BOOST_CHECK(product.getFrequency() == 1);
+    BOOST_CHECK(product.getLoadingTime() == 0.4);
+}
+
+BOOST_AUTO_TEST_CASE(Product_2)
+{
+    Product product("czekolada", 17, 3.4);
+    BOOST_CHECK(product.getName() == "czekolada");
+    BOOST_CHECK(product.getFrequency() == 17);
+    BOOST_CHECK(product.getLoadingTime() == 3.4);
+}
+
+BOOST_AUTO_TEST_SUITE_END()

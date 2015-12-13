@@ -6,7 +6,7 @@ set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR})
 set(LIBRARY_OUTPUT_PATH ${CMAKE_BINARY_DIR})
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
-set(SOURCE_FILES src/main.cpp src/model/RandInt.h src/view/userwindow.cpp src/model/RandDouble.h)
+set(SOURCE_FILES src/main.cpp src/model/RandInt.h src/view/userwindow.cpp src/model/RandDouble.h src/model/Product.cpp src/model/Product.h)
 
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
@@ -22,7 +22,8 @@ find_package(Boost)
 if(Boost_FOUND)
     option(GENERATE_TESTS "Wygeneruj testy" ON)
     if(GENERATE_TESTS)
-        add_executable(tests tests/test_RandInt.cc tests/test_RandDouble.cc)
+        add_executable(tests tests/main.cc tests/test_RandInt.cc tests/test_RandDouble.cc
+                tests/test_Product.cc src/model/Product.cpp)
         target_link_libraries(tests boost_unit_test_framework-mt)
     endif(GENERATE_TESTS)
 endif(Boost_FOUND)

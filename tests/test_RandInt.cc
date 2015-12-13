@@ -1,5 +1,3 @@
-#define BOOST_TEST_DYN_LINK
-#define BOOST_TEST_MODULE RandIntTest
 #include <boost/test/unit_test.hpp>
 #include "../src/model/RandInt.h"
 
@@ -7,6 +5,8 @@ bool between(int low, int high, int check)
 {
     return low <= check && check <= high;
 }
+
+BOOST_AUTO_TEST_SUITE(RandIntClass)
 
 BOOST_AUTO_TEST_CASE(RandInt_1)
 {
@@ -37,3 +37,5 @@ BOOST_AUTO_TEST_CASE(RandInt_3)
         BOOST_CHECK(between(-25, 15, random_int));
     }
 }
+
+BOOST_AUTO_TEST_SUITE_END()
