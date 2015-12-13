@@ -1,6 +1,8 @@
-//
-// Created by Adrian on 2015-12-13.
-//
+/**
+ * \file   Product.cpp
+ * \author Adrian Stachlewski
+ * \date   13-12-2015
+ */
 
 #include "Product.h"
 

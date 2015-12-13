@@ -1,3 +1,10 @@
+/**
+ * \file   test_RandDouble.cc
+ * \author Adrian Stachlewski
+ * \date   13-12-2015
+ * \brief  Testy jednostkowe klasy RandDouble
+ */
+
 #include <boost/test/unit_test.hpp>
 #include "../src/model/RandDouble.h"
 

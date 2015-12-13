@@ -1,3 +1,10 @@
+/**
+ * \file   test_Product.cc
+ * \author Adrian Stachlewski
+ * \date   13-12-2015
+ * \brief  Testy jednostkowe klasy Product
+ */
+
 #include <boost/test/unit_test.hpp>
 #include "../src/model/Product.h"
 
