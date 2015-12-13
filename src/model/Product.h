@@ -30,10 +30,12 @@ public:
     int getFrequency() const;
     double getLoadingTime() const;
 
+    bool operator==(const Product& product) const;
+
 private:
     std::string name;           /**< Nazwa produktu */
     int frequency;              /**< Częstotliwość pobierania produktu */
-    double loadingTime;        /**< Czas załadunku produktu, gdy znajduje się na pierwszej półce */
+    double loadingTime;         /**< Czas załadunku produktu, gdy znajduje się na pierwszej półce */
 };
 
 

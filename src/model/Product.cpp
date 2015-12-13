@@ -17,3 +17,7 @@ int Product::getFrequency() const {
 double Product::getLoadingTime() const {
     return loadingTime;
 }
+
+bool Product::operator==(const Product& product) const{
+    return name == product.getName() && frequency == product.getFrequency() && loadingTime == product.getLoadingTime();
+}
