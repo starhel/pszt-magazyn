@@ -27,10 +27,10 @@ Creature Creature::mutation(double mutationProbability) {
     Creature child(products);
     for (int i = 0; i < products.size(); ++i) {
         if (rd() < mutationProbability) {
-            int swap_index = ri();
-            if (swap_index >= i)
-                swap_index++;
-            std::swap(child.products[i], child.products[swap_index]);
+            int swapIndex = ri();
+            if (swapIndex >= i)
+                swapIndex++;
+            std::swap(child.products[i], child.products[swapIndex]);
         }
     }
     return child;
@@ -38,7 +38,7 @@ Creature Creature::mutation(double mutationProbability) {
 
 Creature Creature::orderCrossover(Creature creature){
     int creatureSize = products.size();
-    RandInt rd(0, creatureSize-1);
+    RandInt rd(0, creatureSize-2);
     int crossPoint = rd();
     Creature child(products);
     std::vector<bool> constNum(creatureSize, false);
