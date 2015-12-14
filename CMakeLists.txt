@@ -16,8 +16,8 @@ find_package(Qt5Widgets REQUIRED)
 
 # Podstawowa aplikacja
 add_executable(app ${SOURCE_FILES})
-target_link_libraries(app boost_random-mt.a)
-target_link_libraries(app boost_system-mt.a)
+target_link_libraries(app boost_random-mt)
+target_link_libraries(app boost_system-mt)
 qt5_use_modules(app Widgets)
 
 # Testy jednostkowe
@@ -29,8 +29,8 @@ if(Boost_FOUND)
                 tests/test_Product.cc src/model/Product.cpp
                 tests/test_Creature.cpp src/model/Creature.cpp)
         target_link_libraries(tests boost_unit_test_framework-mt)
-        target_link_libraries(tests boost_random-mt.a)
-        target_link_libraries(tests boost_system-mt.a)
+        target_link_libraries(tests boost_random-mt)
+        target_link_libraries(tests boost_system-mt)
     endif(GENERATE_TESTS)
 endif(Boost_FOUND)
 
