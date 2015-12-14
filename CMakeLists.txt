@@ -29,6 +29,8 @@ if(Boost_FOUND)
                 tests/test_Product.cc src/model/Product.cpp
                 tests/test_Creature.cpp src/model/Creature.cpp)
         target_link_libraries(tests boost_unit_test_framework-mt)
+        target_link_libraries(tests boost_random-mt.a)
+        target_link_libraries(tests boost_system-mt.a)
     endif(GENERATE_TESTS)
 endif(Boost_FOUND)
 
