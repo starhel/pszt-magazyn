@@ -44,3 +44,13 @@ Creature algorithm(Products products, int steps, double mutationProbabity) {
     return p.getFirstCreature();
 }
 
+double averageTime(const Creature &creature) {
+    double sumF = 0, sumFTP = 0;
+    for(int i=0; i<creature.getSize(); ++i)
+    {
+        auto product = creature.getProduct(i);
+        sumF += product->getFrequency();
+        sumFTP += product->getFrequency()*product->getLoadingTime()*i;
+    }
+    return sumFTP/sumF;
+}

@@ -7,6 +7,7 @@ using Products = std::vector<std::shared_ptr<Product>>; /**< Lista produktow */
 
 double fitnessFunction(const Creature& creature);
 Creature algorithm(Products products, int steps, double mutationProbabity);
+double averageTime(const Creature& creature);
 
 #endif // ALGORITHM
 
