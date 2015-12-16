@@ -9,6 +9,7 @@
 #include "Population.h"
 #include "RandInt.h"
 #include <algorithm>
+#include <iostream>
 
 Population::Population(std::vector<std::shared_ptr<Product>> &products, int size) {
     for (int i = 0; i < size; ++i) {
@@ -42,11 +43,11 @@ Population Population::getBestFromSum(Population &second, int size,
     newPopulation.creatures.reserve(creatures.size() + second.creatures.size());
     newPopulation.creatures.insert(newPopulation.creatures.end(), creatures.cbegin(), creatures.cend());
     newPopulation.creatures.insert(newPopulation.creatures.end(), second.creatures.cbegin(), second.creatures.cend());
-    std::vector<double> fitness;
     std::partial_sort(newPopulation.creatures.begin(), newPopulation.creatures.begin() + size,
                       newPopulation.creatures.end(),
                       [&](Creature& a, Creature &b){return fitnessFunction(a) > fitnessFunction(b);});
-    newPopulation.creatures.erase(newPopulation.creatures.begin() + size + 1, newPopulation.creatures.end());
+    newPopulation.creatures.erase(newPopulation.creatures.begin() + size, newPopulation.creatures.end());
+    std::cout << "Best fitness: " << fitnessFunction(newPopulation.creatures[0]) << std::endl;
     return newPopulation;
 }
 

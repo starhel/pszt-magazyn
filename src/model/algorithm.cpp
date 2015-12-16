@@ -32,8 +32,8 @@ double fitnessFunction(const Creature& creature) {
 
 
 Creature algorithm(Products products, int steps, double mutationProbabity) {
-    int lambda = 10;
-    int mi = 20;
+    int lambda = 20;
+    int mi = 50;
     Population p(products, lambda);
     for (int i = 0; i < steps; ++i) {
         auto t = p.randomSelect(mi);
