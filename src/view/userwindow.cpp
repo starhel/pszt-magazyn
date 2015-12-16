@@ -101,9 +101,9 @@ void UserWindow::startEvolution()
     ui->stackedWidget->setCurrentIndex(LOADING);
     for (int i=0; i<15;++i)
     {
-        products.push_back(std::shared_ptr<Product>(new Product(std::to_string(i)
-                                                                ,freqSpinboxes[i]->value()
-                                                                ,timeSpinboxes[i]->value())));
+        products.emplace_back(new Product(std::to_string(i)
+                                          ,freqSpinboxes[i]->value()
+                                          ,timeSpinboxes[i]->value()));
     }
 
     Creature best = algorithm(products, ui->generationsNoSpinBox->value(), ((double)ui->mutationSlider->value())/100);
