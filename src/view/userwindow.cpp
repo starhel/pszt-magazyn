@@ -3,6 +3,7 @@
 #include "../model/Product.h"
 #include "../model/Creature.h"
 #include "../model/algorithm.h"
+#include "../model/RandInt.h"
 #include <memory>
 
 UserWindow::UserWindow(QWidget *parent) :
@@ -107,7 +108,9 @@ void UserWindow::startEvolution()
                                           ,timeSpinboxes[i]->value()));
     }
 
-    Creature best = algorithm(products, ui->generationsNoSpinBox->value(), ((double)ui->mutationSlider->value())/100);
+    Creature best = algorithm(products, ui->generationsNoSpinBox->value(),
+                              ((double)ui->mutationSlider->value())/100,ui->miSpinBox->value()
+                              ,ui->lambdaSpinBox->value());
 
     for(int row=0;row<15;++row)
     {
@@ -123,7 +126,19 @@ void UserWindow::startEvolution()
     }
 
     ui->generationsNoLabel->setText(QString::number(ui->generationsNoSpinBox->value()));
-    ui->averageTimeLabel->setText(QString::number(fitnessFunction(best),'f',2));
+    ui->averageTimeLabel->setText(QString::number(averageTime(best),'f',2));
 
     ui->stackedWidget->setCurrentIndex(OUTPUT);
+}
+
+void UserWindow::on_randomDataButton_clicked()
+{
+       RandInt ri(100, 9999);
+       for (int i =0; i<15;++i)
+       {
+           int value = ri();
+           timeSpinboxes[i]->setValue(((double)value)/100);
+           value = ri();
+           freqSpinboxes[i]->setValue(((double)value)/100);
+       }
 }

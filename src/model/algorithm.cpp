@@ -31,15 +31,18 @@ double fitnessFunction(const Creature& creature) {
 }
 
 
-Creature algorithm(Products products, int steps, double mutationProbabity) {
-    int lambda = 20;
-    int mi = 50;
-    Population p(products, lambda);
+Creature algorithm(Products products, int steps, double mutationProbabity, int mi, int lambda) {
+    //int lambda = 20;
+    //int mi = 50;
+    //Population p(products, lambda);
+    Population p(products, mi);
     for (int i = 0; i < steps; ++i) {
-        auto t = p.randomSelect(mi);
+        //auto t = p.randomSelect(mi);
+        auto t = p.randomSelect(lambda);
         auto o = t.getCrossedPopulation();
         o.mutatePopulation(mutationProbabity);
-        p = p.getBestFromSum(o, lambda, &fitnessFunction);
+        //p = p.getBestFromSum(o, lambda, &fitnessFunction);
+        p = p.getBestFromSum(o, mi, &fitnessFunction);
     }
     return p.getFirstCreature();
 }

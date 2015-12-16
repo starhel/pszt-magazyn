@@ -42,6 +42,8 @@ private slots:
 
     void on_mutationSlider_valueChanged(int value);
 
+    void on_randomDataButton_clicked();
+
 private:
     Ui::UserWindow *ui;
 
