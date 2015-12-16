@@ -25,7 +25,7 @@ double fitnessFunction(const Creature& creature)
  {
      auto product = creature.getProduct(i);
      sumF+= product->getFrequency();
-     sumFTP+= product->getFrequency()*product->getLoadingTime()*i;
+     sumFTP+= product->getFrequency()*product->getLoadingTime()*++i;
  }
  if(sumFTP!=0)
  return sumF/sumFTP;
