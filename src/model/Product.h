@@ -39,7 +39,7 @@ public:
 
 private:
     static int productCounter;
-    int number;
+    int number;                 /**< Numer porządkowy produktu */
     std::string name;           /**< Nazwa produktu */
     double frequency;           /**< Częstotliwość pobierania produktu */
     double loadingTime;         /**< Czas załadunku produktu, gdy znajduje się na pierwszej półce */

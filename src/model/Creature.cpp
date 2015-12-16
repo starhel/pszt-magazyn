@@ -17,7 +17,7 @@ void Creature::shuffle() {
     std::shuffle(products.begin(), products.end(), gen);
 }
 
-Creature::ProductRef Creature::getProduct(int id) {
+Creature::ProductRef Creature::getProduct(int id) const {
     return products[id];
 }
 
@@ -54,4 +54,9 @@ Creature Creature::orderCrossover(Creature creature){
         }
     }
     return child;
+}
+
+int Creature:: getSize() const
+{
+    return products.size();
 }
