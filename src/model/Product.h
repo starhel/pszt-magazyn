@@ -23,7 +23,7 @@ public:
      * \param frequency Częstotliwość pobierania produktu
      * \param loadingTime Czas załadunku produktu, gdy znajduje się na pierwszej półce
      */
-    Product(const std::string &name, int frequency, double loadingTime) : name(name), frequency(frequency),
+    Product(const std::string &name, double frequency, double loadingTime) : name(name), frequency(frequency),
                                                                            loadingTime(loadingTime)
     {
         number = 0;

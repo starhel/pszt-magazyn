@@ -7,12 +7,12 @@
 
 int main(int argc, char *argv[])
 {
-    /*
+
     QApplication a(argc, argv);
     UserWindow w;
     w.show();
 
-    return a.exec();*/
+    return a.exec();
 
     std::vector<std::shared_ptr<Product>> p1;
     std::vector<std::shared_ptr<Product>> p2;

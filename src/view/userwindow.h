@@ -6,6 +6,9 @@
 #include <QtWidgets/QGraphicsView>
 #include <QtWidgets/QGraphicsItem>
 #include <QtWidgets/QMessageBox>
+#include <QtWidgets/QDoubleSpinBox>
+#include <vector>
+
 
 namespace Ui {
 class UserWindow;
@@ -28,6 +31,8 @@ private slots:
 
     void on_newTaskButton_clicked();
 
+    void on_mutationSlider_valueChanged(int value);
+
 private:
     Ui::UserWindow *ui;
 
@@ -38,6 +43,9 @@ private:
     };
 
     View currView;
+    std::vector<QDoubleSpinBox*> freqSpinboxes;
+    std::vector<QDoubleSpinBox*> timeSpinboxes;
+
 };
 
 #endif // USERWINDOW_H

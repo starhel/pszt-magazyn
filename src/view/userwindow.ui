@@ -18,7 +18,7 @@
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="inputPage">
        <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -394,6 +394,23 @@
             </property>
             <property name="value">
              <number>200</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSlider" name="mutationSlider">
+            <property name="minimum">
+             <number>1</number>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="mutationLabel">
+            <property name="text">
+             <string>0.01</string>
             </property>
            </widget>
           </item>
