@@ -69,7 +69,7 @@ void UserWindow::on_getSolutionButton_clicked()
             QMessageBox::warning(this,"Błąd","Parametry towarów muszą być większe od 0!");
             return;
         }
-
+    ui->stackedWidget->setCurrentIndex(LOADING);
     startEvolution();
 }
 
@@ -87,6 +87,7 @@ void UserWindow::on_actionQuit_triggered()
 void UserWindow::on_newTaskButton_clicked()
 {
     ui->stackedWidget->setCurrentIndex(INPUT);
+    Product::productCounter = 0;
 }
 
 void UserWindow::on_mutationSlider_valueChanged(int value)
@@ -99,7 +100,6 @@ void UserWindow::startEvolution()
     std::vector<std::shared_ptr<Product>> products;
     QTableWidgetItem *newItem;
     std::shared_ptr<Product> p;
-    ui->stackedWidget->setCurrentIndex(LOADING);
     for (int i=0; i<15;++i)
     {
         products.emplace_back(new Product(std::to_string(i)
