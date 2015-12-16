@@ -2,6 +2,7 @@
 #include "ui_userwindow.h"
 #include "../model/Product.h"
 #include "../model/Creature.h"
+#include "../model/algorithm.h"
 #include <memory>
 
 UserWindow::UserWindow(QWidget *parent) :
@@ -67,15 +68,8 @@ void UserWindow::on_getSolutionButton_clicked()
             QMessageBox::warning(this,"Błąd","Parametry towarów muszą być większe od 0!");
             return;
         }
-    std::vector<std::shared_ptr<Product>> products;
-    for (int i=0; i<15;++i)
-    {
-        products.push_back(std::shared_ptr<Product>(new Product(std::to_string(i)
-                                                                ,freqSpinboxes[i]->value()
-                                                                ,timeSpinboxes[i]->value())));
-    }
-    //Creature best = algorithm(products, ui->generationsNoSpinBox->value(), ((double)ui->mutationSlider->value())/100);
-    ui->stackedWidget->setCurrentIndex(OUTPUT);
+
+    startEvolution();
 }
 
 void UserWindow::on_actionAuthors_triggered()
@@ -97,4 +91,38 @@ void UserWindow::on_newTaskButton_clicked()
 void UserWindow::on_mutationSlider_valueChanged(int value)
 {
         ui->mutationLabel->setText(QString::number(((double)value)/100, 'f', 2));
+}
+
+void UserWindow::startEvolution()
+{
+    /*std::vector<std::shared_ptr<Product>> products;
+    QTableWidgetItem *newItem;
+    std::shared_ptr<Product> p;
+    ui->stackedWidget->setCurrentIndex(LOADING);
+    for (int i=0; i<15;++i)
+    {
+        products.push_back(std::shared_ptr<Product>(new Product(std::to_string(i)
+                                                                ,freqSpinboxes[i]->value()
+                                                                ,timeSpinboxes[i]->value())));
+    }
+
+    Creature best = algorithm(products, ui->generationsNoSpinBox->value(), ((double)ui->mutationSlider->value())/100);
+
+    for(int row=0;row<15;++row)
+    {
+        p = best.getProduct(row);
+        newItem = new QTableWidgetItem(QString::number(p->getNumber()+1));
+        ui->tableWidget->setItem(row, 0, newItem);
+
+        newItem = new QTableWidgetItem(QString::number(p->getLoadingTime(),'f',2));
+        ui->tableWidget->setItem(row, 1, newItem);
+
+        newItem = new QTableWidgetItem(QString::number(p->getFrequency(),'f',2));
+        ui->tableWidget->setItem(row, 2, newItem);
+    }
+
+    ui->generationsNoLabel->setText(QString::number(ui->generationsNoSpinBox->value()));
+    ui->averageTimeLabel->setText(QString::number(fitnessFunction(best),'f',2));*/
+
+    ui->stackedWidget->setCurrentIndex(OUTPUT);
 }

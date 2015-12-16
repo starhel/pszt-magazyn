@@ -39,12 +39,14 @@ private:
     enum View
     {
         INPUT = 0,
-        OUTPUT = 1
+        OUTPUT = 1,
+        LOADING = 2
     };
 
     View currView;
     std::vector<QDoubleSpinBox*> freqSpinboxes;
     std::vector<QDoubleSpinBox*> timeSpinboxes;
+    void startEvolution();
 
 };
 
