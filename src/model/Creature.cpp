@@ -1,6 +1,7 @@
 /**
  * \file   Creature.cpp
  * \author Adrian Stachlewski
+ * \author Emilia Sokół
  * \date   13-12-2015
  * \brief  Klasa przechowuąca informacje o osobniku.
  */
