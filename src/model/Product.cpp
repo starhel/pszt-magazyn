@@ -10,7 +10,7 @@ const std::string& Product::getName() const {
     return name;
 }
 
-int Product::getFrequency() const {
+double Product::getFrequency() const {
     return frequency;
 }
 

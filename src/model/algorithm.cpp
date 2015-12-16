@@ -15,6 +15,8 @@ using Products = std::vector<std::shared_ptr<Product>>; /**< Lista produktow */
  * \param products Wektor sprytnych wskaźników na produkty
  * \param steps Liczba pokoleń, które zostaną wygenerowane
  */
-int algorithm(Products products, int steps) {
-    return 0;
-}
+
+double fitnessFunction(const Creature& creature);
+
+Creature algorithm(Products products, int steps, double mutationProbabity);
+

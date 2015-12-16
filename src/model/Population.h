@@ -41,12 +41,12 @@ public:
     * \param second druga populacja
     * \param size Żądany rozmiar populacji
     */
-    Population getBestFromSum(Population& second, int size);
+    Population getBestFromSum(Population& second, int size, std::function<double(const Creature&)> fitnessFunction);
 
     /**
     * Funkcja która mutuje osobników populacji
     */
-    void mutatePopulation();
+    void mutatePopulation(double mutationProbabilty);
 
     /**
     * Funkcja która zwraca pierwszego osobnika populacji - ma sens tylko dla populacji utworzonej
@@ -58,14 +58,11 @@ private:
     /**
     * Konstruktor klasy Population używany wyłącznie przez funkcje, które tworzą nowe populacje
     */
-    Population()
-    {}
-    using Creatures = std::vector<std::shared_ptr<Creature>>;
-    using CreatureRef = std::shared_ptr<Creature>;
+    Population() {}
+    using Creatures = std::vector<Creature>;
 
     Creatures creatures; /**< Wektor osobników */
     void addCreature(Creature creature); /**< Funkcja dodająca nowego osobnika */
-
 };
 
 

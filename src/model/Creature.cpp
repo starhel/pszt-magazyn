@@ -21,19 +21,17 @@ Creature::ProductRef Creature::getProduct(int id) {
     return products[id];
 }
 
-Creature Creature::mutation(double mutationProbability) {
+void Creature::mutation(double mutationProbability) {
     RandDouble rd;
     RandInt ri(0, static_cast<int>(products.size() - 2));
-    Creature child(products);
     for (int i = 0; i < products.size(); ++i) {
         if (rd() < mutationProbability) {
             int swapIndex = ri();
             if (swapIndex >= i)
                 swapIndex++;
-            std::swap(child.products[i], child.products[swapIndex]);
+            std::swap(products[i], products[swapIndex]);
         }
     }
-    return child;
 }
 
 Creature Creature::orderCrossover(Creature creature){

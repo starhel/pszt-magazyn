@@ -30,7 +30,7 @@ public:
     }
 
     const std::string& getName() const;
-    int getFrequency() const;
+    double getFrequency() const;
     double getLoadingTime() const;
     int getNumber() const;
     void setNumber(int n);
@@ -41,7 +41,7 @@ private:
     static int productCounter;
     int number;
     std::string name;           /**< Nazwa produktu */
-    int frequency;              /**< Częstotliwość pobierania produktu */
+    double frequency;           /**< Częstotliwość pobierania produktu */
     double loadingTime;         /**< Czas załadunku produktu, gdy znajduje się na pierwszej półce */
 };
 
