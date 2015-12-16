@@ -1,3 +1,9 @@
+/**
+ * \file   userwindow.h
+ * \author Michał Kamiński
+ * \date   13-12-2015
+ * \brief  Okno programu
+ */
 #ifndef USERWINDOW_H
 #define USERWINDOW_H
 
@@ -14,6 +20,9 @@ namespace Ui {
 class UserWindow;
 }
 
+/**
+ * \brief Okno programu
+ */
 class UserWindow : public QMainWindow
 {
     Q_OBJECT

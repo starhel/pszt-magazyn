@@ -45,6 +45,7 @@ UserWindow::UserWindow(QWidget *parent) :
         timeSpinboxes.push_back(ui->timeSpinBox14);
         timeSpinboxes.push_back(ui->timeSpinBox15);
     }
+
 }
 
 UserWindow::~UserWindow()
