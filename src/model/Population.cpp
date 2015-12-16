@@ -8,8 +8,3 @@
 
 #include "Population.h"
 
-Creature Population::getBestCreature (std::vector<std::shared_ptr<Product>> products,
-                                      int populationNumber, int mi=20, int lambda=140){
-    Creature best(products);
-    return best;
-}
