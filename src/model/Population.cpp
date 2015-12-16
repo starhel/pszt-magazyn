@@ -47,7 +47,6 @@ Population Population::getBestFromSum(Population &second, int size,
                       newPopulation.creatures.end(),
                       [&](Creature& a, Creature &b){return fitnessFunction(a) > fitnessFunction(b);});
     newPopulation.creatures.erase(newPopulation.creatures.begin() + size, newPopulation.creatures.end());
-    std::cout << "Best fitness: " << fitnessFunction(newPopulation.creatures[0]) << std::endl;
     return newPopulation;
 }
 
