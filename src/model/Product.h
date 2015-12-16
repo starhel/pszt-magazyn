@@ -23,10 +23,11 @@ public:
      * \param frequency Częstotliwość pobierania produktu
      * \param loadingTime Czas załadunku produktu, gdy znajduje się na pierwszej półce
      */
+     static int productCounter;
     Product(const std::string &name, double frequency, double loadingTime) : name(name), frequency(frequency),
                                                                            loadingTime(loadingTime)
     {
-        number = 0;
+        number = productCounter++;
     }
 
     const std::string& getName() const;
@@ -38,7 +39,6 @@ public:
     bool operator==(const Product& product) const;
 
 private:
-    static int productCounter;
     int number;                 /**< Numer porządkowy produktu */
     std::string name;           /**< Nazwa produktu */
     double frequency;           /**< Częstotliwość pobierania produktu */

@@ -6,6 +6,8 @@
 
 #include "Product.h"
 
+int Product::productCounter = 0;
+
 const std::string& Product::getName() const {
     return name;
 }
