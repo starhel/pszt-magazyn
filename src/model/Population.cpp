@@ -19,7 +19,7 @@ Population::Population(std::vector<std::shared_ptr<Product>> &products, int size
 }
 
 Population Population::randomSelect(int size) {
-    RandInt ri(0, size-1);
+    RandInt ri(0, creatures.size()-1);
     Population newPopulation;
     for (int i = 0; i < size; ++i) {
         newPopulation.addCreature(creatures[ri()]);

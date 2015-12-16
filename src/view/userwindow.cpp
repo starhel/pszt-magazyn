@@ -95,7 +95,7 @@ void UserWindow::on_mutationSlider_valueChanged(int value)
 
 void UserWindow::startEvolution()
 {
-    /*std::vector<std::shared_ptr<Product>> products;
+    std::vector<std::shared_ptr<Product>> products;
     QTableWidgetItem *newItem;
     std::shared_ptr<Product> p;
     ui->stackedWidget->setCurrentIndex(LOADING);
@@ -122,7 +122,7 @@ void UserWindow::startEvolution()
     }
 
     ui->generationsNoLabel->setText(QString::number(ui->generationsNoSpinBox->value()));
-    ui->averageTimeLabel->setText(QString::number(fitnessFunction(best),'f',2));*/
+    ui->averageTimeLabel->setText(QString::number(fitnessFunction(best),'f',2));
 
     ui->stackedWidget->setCurrentIndex(OUTPUT);
 }
