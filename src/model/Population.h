@@ -46,7 +46,7 @@ public:
     /**
     * Funkcja która mutuje osobników populacji
     */
-    void mutatePopulation(double mutationProbabilty);
+    void mutatePopulation(double mutationProbability);
 
     /**
     * Funkcja która zwraca pierwszego osobnika populacji - ma sens tylko dla populacji utworzonej
