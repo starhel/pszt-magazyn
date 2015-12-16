@@ -7,7 +7,8 @@
 #ifndef PSZT_RANDDOUBLE_H
 #define PSZT_RANDDOUBLE_H
 
-#include <random>
+#include <boost/random.hpp>
+#include <boost/nondet_random.hpp>
 #include <functional>
 
 /**
@@ -33,8 +34,8 @@ public:
      */
     double operator()() {return fun();}
 private:
-    std::uniform_real_distribution<>::param_type p; /**< Parametr do generatora liczb z rozkładem jednostajnym */
+    boost::random::uniform_real_distribution<>::param_type p; /**< Parametr do generatora liczb z rozkładem jednostajnym */
     /** Obiekt funkcyjny do generowania losowych liczb */
-    std::function<double()> fun = std::bind(std::uniform_real_distribution<>{p}, std::default_random_engine{});
+    std::function<double()> fun = std::bind(boost::random::uniform_real_distribution<>{p}, boost::mt19937{boost::random::random_device{}()});
 };
 #endif //PSZT_RANDDOUBLE_H
