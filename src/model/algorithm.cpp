@@ -53,7 +53,7 @@ double averageTime(const Creature &creature) {
     {
         auto product = creature.getProduct(i);
         sumF += product->getFrequency();
-        sumFTP += product->getFrequency()*product->getLoadingTime()*i;
+        sumFTP += product->getFrequency()*product->getLoadingTime()*(i+1);
     }
     return sumFTP/sumF;
 }
