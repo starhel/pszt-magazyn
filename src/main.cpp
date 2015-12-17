@@ -10,6 +10,9 @@
 #include "view/userwindow.h"
 #include <QtWidgets/QApplication>
 
+/**
+ * \brief Funkcja odpowiedzialna za uruchomienie programu.
+ */
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);

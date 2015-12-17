@@ -2,6 +2,7 @@
  * \file   Product.cpp
  * \author Adrian Stachlewski
  * \date   13-12-2015
+ * \brief  Klasa przechowująca informacje o produkcie.
  */
 
 #include "Product.h"
@@ -19,12 +20,9 @@ double Product::getFrequency() const {
 double Product::getLoadingTime() const {
     return loadingTime;
 }
+
 int Product::getNumber() const{
     return number;
-}
-
-void Product::setNumber(int n){
-    number = n;
 }
 
 bool Product::operator==(const Product& product) const{
