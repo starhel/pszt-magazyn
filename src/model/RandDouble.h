@@ -13,6 +13,7 @@
 
 /**
  * \brief Generator losowej liczby z przedziału <low, high) z rozkładem jednostajnym.
+ *
  * Wartosci domyslne: <0, 1)
  */
 class RandDouble {
