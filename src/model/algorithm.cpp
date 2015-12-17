@@ -32,7 +32,7 @@ Creature algorithm(Products products, int steps, double mutationProbability, int
         o.mutatePopulation(mutationProbability);
         p = p.getBestFromSum(o, mi, &fitnessFunction);
     }
-    return p.getFirstCreature();
+    return p.getBestCreature();
 }
 
 

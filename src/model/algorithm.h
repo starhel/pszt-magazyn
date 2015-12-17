@@ -6,8 +6,8 @@
  * \brief  Funkcje odpowiadajace za prawidłowy przebieg algorytmu ewolucyjnego
  */
 
-#ifndef ALGORITHM
-#define ALGORITHM
+#ifndef ALGORITHM_H
+#define ALGORITHM_H
 #include "Creature.h"
 #include "Product.h"
 
@@ -30,14 +30,14 @@ double fitnessFunction(const Creature& creature);
  * \param lambda Parametr lambda
  * \return Funkcja zwraca najlepszego osobnika po przejsciu przez wszystkie pokolenia.
  */
-Creature algorithm(Products products, int steps, double mutationProbabity, int mi,int lambda);
+Creature algorithm(Products products, int steps, double mutationProbability, int mi, int lambda);
 
 /**
  * \brief Funkcja obliczająca średni czas załadunku towaru
- * \param Obiket Creature przechowujący informacje o produktach
+ * \param creature Obiekt Creature przechowujący informacje o produktach
  * \return Średni czas załadunku towaru
  */
 double averageTime(const Creature& creature);
 
-#endif // ALGORITHM
+#endif // ALGORITHM_H
 

@@ -39,10 +39,11 @@ public:
 
     /**
      * \brief Funkcja powoduje mutację osobnika.
+     * \param mutationProbability Prawdopodobieństwo zajścia mutacji
+     *
      * Mutacja polega na zamianie dwóch produktów miejscami. Dla każdego produktu losujemy liczbę z przedziału
      * <0, 1). Jeżeli jest ona mniejsza od mutationProbability to produkt jest zamieniany z drugim losowo
      * wybranym.
-     * \param mutationProbability Prawdopodobieństwo zajścia mutacji
      */
     void mutation(double mutationProbability);
 
