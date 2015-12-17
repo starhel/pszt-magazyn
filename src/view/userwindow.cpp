@@ -70,6 +70,7 @@ void UserWindow::on_getSolutionButton_clicked()
             QMessageBox::warning(this,"Błąd","Parametry towarów muszą być większe od 0!");
             return;
         }
+
     ui->stackedWidget->setCurrentIndex(LOADING);
     startEvolution();
 }
