@@ -14,9 +14,8 @@
 using Products = std::vector<std::shared_ptr<Product>>; /**< Lista produktow */
 
 /**
- * \brief Główna funkcja odpowiedzialna za algorytm ewolucyjny
- * \param products Wektor sprytnych wskaźników na produkty
- * \param steps Liczba pokoleń, które zostaną wygenerowane
+ * \brief funkcja przystosowania
+ * \param creatures wektor osobników
  */
 
 double fitnessFunction(const Creature& creature) {
@@ -32,6 +31,15 @@ double fitnessFunction(const Creature& creature) {
 }
 
 
+/**
+ * @brief algorithm  główna funkcja odpowiadająca za strategię ewolucji mi+lambda
+ * @param products  wektro produktów
+ * @param steps  ile tworzymy pokoleń
+ * @param mutationProbabity  prawdopodobieństwo mutacji
+ * @return
+ */
+
+
 Creature algorithm(Products products, int steps, double mutationProbabity) {
     int lambda = 20;
     int mi = 50;
@@ -44,6 +52,12 @@ Creature algorithm(Products products, int steps, double mutationProbabity) {
     }
     return p.getFirstCreature();
 }
+
+/**
+ * @brief averageTime funkcja odpowiadająca za średni czas dostępu
+ * @param creature wektor osobnikow
+ * @return
+ */
 
 double averageTime(const Creature &creature) {
     double sumF = 0, sumFTP = 0;
