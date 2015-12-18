@@ -14,6 +14,7 @@
 
 /**
  * \brief Generator losowej liczby całkowitej.
+ *
  * Klasa RandInt pozwala na generowanie losowej liczby całkowitej z rozkładem jednostajnym na zadanym przedziale.
  */
 class RandInt {
