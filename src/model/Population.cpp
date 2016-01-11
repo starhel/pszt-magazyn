@@ -1,15 +1,11 @@
 /**
- * \file   Populacja.cpp
+ * \file   Population.cpp
  * \author Adrian Stachlewski
- * \author Michał Kamiński
  * \date   13-12-2015
  * \brief  Klasa przechowująca informacje o populacji
 */
 
 #include "Population.h"
-#include "RandInt.h"
-#include <algorithm>
-#include <iostream>
 
 Population::Population(std::vector<std::shared_ptr<Product>> &products, int size) {
     for (int i = 0; i < size; ++i) {
@@ -56,7 +52,7 @@ void Population::mutatePopulation(double mutationProbability) {
     }
 }
 
-Creature Population::getFirstCreature() {
+Creature Population::getBestCreature() {
     return creatures[0];
 }
 

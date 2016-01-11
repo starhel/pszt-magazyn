@@ -1,49 +1,44 @@
 /**
  * \file   Creature.cpp
  * \author Adrian Stachlewski
- * \author Emilia Sokół
+ * \author Michał Kamiński
  * \date   13-12-2015
- * \brief  Klasa przechowuąca informacje o osobniku.
+ * \brief  Klasa przechowuąca informacje o osobniku. Umożliwia dodatkowo podstawowe operacje związane z osobnikiem.
  */
 
 #include "Creature.h"
-#include <random>
-#include <algorithm>
-#include "RandDouble.h"
-#include "RandInt.h"
 
 void Creature::shuffle() {
-    std::random_device rd;
-    std::mt19937 gen(rd());
+    boost::random_device rd;
+    boost::random::mt19937 gen(rd());
     std::shuffle(products.begin(), products.end(), gen);
 }
 
-Creature::ProductRef Creature::getProduct(int id) const {
-    return products[id];
+Creature::ProductRef Creature::getProduct(int i) const {
+    return products[i];
 }
 
 void Creature::mutation(double mutationProbability) {
     RandDouble rd;
     RandInt ri(0, static_cast<int>(products.size() - 2));
     for (int i = 0; i < products.size(); ++i) {
-        if (rd() < mutationProbability) {
-            int swapIndex = ri();
+        if (rd() < mutationProbability) {                   // sprawdzamy, czy mutacja zachodzi
+            int swapIndex = ri();                           // szukamy produktu, z którym dojdzie do zamiany
             if (swapIndex >= i)
                 swapIndex++;
-            std::swap(products[i], products[swapIndex]);
+            std::swap(products[i], products[swapIndex]);    // zamieniamy produkty
         }
     }
 }
 
-Creature Creature::orderCrossover(Creature creature){
-    int creatureSize = products.size();
+Creature Creature::orderCrossover(Creature creature) const{
+    int creatureSize = static_cast<int>(products.size());
     RandInt rd(0, creatureSize-2);
     int crossPoint = rd();
     Creature child(products);
     std::vector<bool> constNum(creatureSize, false);
 
-    //wykorzystane liczby przed pkt ciecia
-    for (int i = 0; i <= crossPoint; ++i) {
+    for (int i = 0; i <= crossPoint; ++i) {                 // liczby wykorzystane przed punkttem cięcia
         constNum[(child.products[i])->getNumber()] = true;
     }
 
@@ -57,7 +52,6 @@ Creature Creature::orderCrossover(Creature creature){
     return child;
 }
 
-int Creature:: getSize() const
-{
-    return products.size();
+int Creature:: getSize() const {
+    return static_cast<int>(products.size());
 }

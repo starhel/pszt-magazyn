@@ -32,15 +32,36 @@ public:
     ~UserWindow();
 
 private slots:
+    /**
+    * Obsługa przycisku "Znajdź rozwiązanie"
+    * Sprawdza wprowadzone dane oraz uruchamia ewolucję
+    */
     void on_getSolutionButton_clicked();
 
+    /**
+    * Wyświetla autorów
+    */
     void on_actionAuthors_triggered();
 
+    /**
+    * Zamyka program
+    */
     void on_actionQuit_triggered();
 
+    /**
+    * Obsługa przycisku "Wprowadź nowe dane"
+    */
     void on_newTaskButton_clicked();
 
+    /**
+    * Obsługa suwaka współczynnika mutacji
+    */
     void on_mutationSlider_valueChanged(int value);
+
+    /**
+    * Wprowadza losowe dane towarów
+    */
+    void on_randomDataButton_clicked();
 
 private:
     Ui::UserWindow *ui;
@@ -52,9 +73,13 @@ private:
         LOADING = 2
     };
 
-    View currView;
-    std::vector<QDoubleSpinBox*> freqSpinboxes;
-    std::vector<QDoubleSpinBox*> timeSpinboxes;
+    View currView; /**< Aktualny widok okna */
+    std::vector<QDoubleSpinBox*> freqSpinboxes; /**< Wektor SpinBoxów z danymi o częstotliwościach */
+    std::vector<QDoubleSpinBox*> timeSpinboxes; /**< Wektor SpinBoxów z danymi o czasach */
+
+    /**
+    * Przygotowuje dane dla algorytmu ewolucyjnego i go rozpoczyna
+    */
     void startEvolution();
 
 };

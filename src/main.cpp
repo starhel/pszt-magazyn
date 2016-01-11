@@ -1,10 +1,18 @@
+/**
+ * \file   main.cpp
+ * \author Adrian Stachlewski
+ * \author Michał Kamiński
+ * \author Emilia Sokół
+ * \date   13-12-2015
+ * \brief  Start programu
+ */
+
 #include "view/userwindow.h"
 #include <QtWidgets/QApplication>
-#include "model/Creature.h"
-#include "model/Product.h"
-#include "model/RandInt.h"
-#include <iostream>
 
+/**
+ * \brief Funkcja odpowiedzialna za uruchomienie programu.
+ */
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);

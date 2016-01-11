@@ -13,16 +13,15 @@ set(CMAKE_AUTOUIC ON)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 find_package(Qt5Widgets REQUIRED)
 
-
-# Podstawowa aplikacja
-add_executable(app ${SOURCE_FILES})
-target_link_libraries(app boost_random-mt)
-target_link_libraries(app boost_system-mt)
-qt5_use_modules(app Widgets)
-
-# Testy jednostkowe
 find_package(Boost)
 if(Boost_FOUND)
+    # Podstawowa aplikacja
+    add_executable(app ${SOURCE_FILES})
+    target_link_libraries(app boost_random-mt)
+    target_link_libraries(app boost_system-mt)
+    qt5_use_modules(app Widgets)
+
+    # Testy jednostkowe
     option(GENERATE_TESTS "Wygeneruj testy" ON)
     if(GENERATE_TESTS)
         add_executable(tests tests/main.cc tests/test_RandInt.cc tests/test_RandDouble.cc
