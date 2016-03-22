@@ -20,17 +20,6 @@ if(Boost_FOUND)
     target_link_libraries(app boost_random-mt)
     target_link_libraries(app boost_system-mt)
     qt5_use_modules(app Widgets)
-
-    # Testy jednostkowe
-    option(GENERATE_TESTS "Wygeneruj testy" ON)
-    if(GENERATE_TESTS)
-        add_executable(tests tests/main.cc tests/test_RandInt.cc tests/test_RandDouble.cc
-                tests/test_Product.cc src/model/Product.cpp
-                tests/test_Creature.cpp src/model/Creature.cpp)
-        target_link_libraries(tests boost_unit_test_framework-mt)
-        target_link_libraries(tests boost_random-mt)
-        target_link_libraries(tests boost_system-mt)
-    endif(GENERATE_TESTS)
 endif(Boost_FOUND)
 
 # Dokumentacja
@@ -42,7 +31,7 @@ if(DOXYGEN_FOUND)
         add_custom_target(doc
                 ${DOXYGEN_EXECUTABLE} ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile
                 WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
-                COMMENT "Generating API documentation with Doxygen" VERBATIM
+                COMMENT "Generowanie dokumentacji" VERBATIM
                 )
     endif(GENERATE_DOC)
 endif(DOXYGEN_FOUND)
